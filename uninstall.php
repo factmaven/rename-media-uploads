@@ -1,17 +1,9 @@
 <?php
 
-/**
- * 
- * This file runs when the plugin in uninstalled (deleted).
- * This will not run when the plugin is deactivated.
- * Ideally you will add all your clean-up scripts here
- * that will clean-up unused meta, options, etc. in the database.
- *
- */
-
-// If plugin is not being uninstalled, exit (do nothing)
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) { // If plugin is not being uninstalled, exit (do nothing)
 	exit;
 }
 
-// Do something here if plugin is being uninstalled.
+register_uninstall_hook(__FILE__, array( 'rename_media_uploads', 'uninstall' ) );
+
+delete_site_option( 'rename_media_uploads' );
