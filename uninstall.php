@@ -4,6 +4,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) { // If plugin is not being uninstalle
 	exit;
 }
 
-register_uninstall_hook(__FILE__, array( 'rename_media_uploads', 'uninstall' ) );
+register_uninstall_hook(__FILE__, array( 'FCM_Rename_Media_Uploads', 'uninstall' ) );
 
-delete_site_option( 'rename_media_uploads' );
+delete_site_option( 'FCM_Rename_Media_Uploads' );
